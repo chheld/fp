@@ -8,7 +8,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 22
         versionCode 1
-        versionName "0.58a ${buildLongDateTime()}"
+        versionName "0.58b ${buildLongDateTime()}"
     }
     buildTypes {
         release {
@@ -30,7 +30,7 @@ dependencies {
     compile 'com.android.support:design:22.2.1'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.android.support:support-v4:22.2.1'
-    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.android.support:support-annotations:22.0.1'
     compile 'org.apache.directory.studio:org.apache.commons.lang:2.6'
     compile 'com.mcxiaoke.volley:library:1.0.19'

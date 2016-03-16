@@ -82,7 +82,7 @@ public class GalleryListFragment extends Fragment {
         Integer rows = getArguments().getInt("rows");
         mSearchString = getArguments().getString("search", null); // evtl. übergebene SUCH-Parameter ermitteln
 
-        if (rows==0) rows=3; // default für Anzeige setzen
+        if (rows==0) rows=4; // default für Anzeige setzen
         int numColumns = 3;
 
         //Setup layout manager
@@ -94,10 +94,25 @@ public class GalleryListFragment extends Fragment {
 
         //Setup Recyclerview
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(mContext, rows));
         mRecyclerView.setLayoutManager(layoutManager);
         mRecyclerView.getRecycledViewPool().setMaxRecycledViews(0, 2 * numColumns); //TODO: löschen ??
         mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
+                super.onScrollStateChanged(recyclerView, scrollState);
+
+                //final Picasso picasso = Picasso.with(mContext);
+
+                if (scrollState == 1 || scrollState == 0) {
+                    Picasso.with(mContext).resumeTag(mContext);
+                } else {
+                    Picasso.with(mContext).pauseTag(mContext);
+                }
+
+            }
+        });
+
 
         //Setup Swipe Layput
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_conctactlist_container);

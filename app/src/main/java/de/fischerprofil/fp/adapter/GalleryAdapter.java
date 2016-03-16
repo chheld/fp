@@ -48,7 +48,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
     }
 
     @Override
-    public void onBindViewHolder(GalleryItemViewHolder holder, int position) {
+    public void onBindViewHolder(final GalleryItemViewHolder holder, int position) {
 
         final GalleryImage current = mDataset.get(position);
 
@@ -62,9 +62,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
             if (holder.mImg.getDrawable() == null) {
 
                 mPicasso.load(mDataset.get(position).getUrl())
-                        //.stableKey(mDataset.get(position).getUrl())
+                        .stableKey(mDataset.get(position).getUrl())
                         .resize(200, 200)
-                        //.placeholder(R.drawable.ic_hourglass_black)
+                        .placeholder(R.drawable.ic_hourglass_black)
                         .error(R.drawable.ic_default)
                         .centerCrop()
                         .tag(holder)
@@ -73,7 +73,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
                 holder.mImg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        showGalleryDialog(view, current.getUrl());
+                        showGalleryDialog(view, current.getUrl(), holder.position, (ArrayList<GalleryImage>) mDataset);
+                        // showGalleryDialog(view, current.getUrl(), holder.position);
                     }
                 });
             }
@@ -86,7 +87,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
         return mDataset.size();
     }
 
-    private void showGalleryDialog(View v, String nr) {
+    private void showGalleryDialog(View v, String nr, Integer position, ArrayList<GalleryImage> data) {
 
         UIUtils.makeToast(v.getContext(), nr); //TEST
 
@@ -103,6 +104,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
 //                intent.putExtra("pos", position);
 //                v.getContext().startActivity(intent);
 
+//                Intent intent = new Intent(mContext, GalleryDetailsActivity.class);
+//                intent.putParcelableArrayListExtra("data", data);
+//                intent.putExtra("pos", position);
+//                mContext.startActivity(intent);
             }
         }
         catch (Exception e) {

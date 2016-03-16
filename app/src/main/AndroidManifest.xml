@@ -83,6 +83,15 @@
                 android:resource="@xml/searchable" />
         </activity>
 
+        <activity android:name=".ui.GalleryDetailsActivity"
+            android:launchMode="singleTop"
+            android:label="Gallery Details"
+            android:parentActivityName=".ui.GalleryListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="de.fischerprofil.fp.ui.OrderListActivity" />
+        </activity>
+
         <provider
             android:name="de.fischerprofil.fp.provider.OrderSuggestionProvider"
             android:authorities="de.fischerprofil.fp.provider.OrderSuggestionProvider"

@@ -44,7 +44,7 @@ public class GalleryDetailsActivity extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(mToolbar);
 
-        //mData = getIntent().getParcelableArrayListExtra("data");
+        //mData = getIntent().getParcelableArrayListExtra("mData");
 
 /*
         GalleryImage galleryImage = new GalleryImage();
@@ -106,15 +106,16 @@ public class GalleryDetailsActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+/*
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
+*/
         return super.onOptionsItemSelected(item);
     }
-
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -122,29 +123,29 @@ public class GalleryDetailsActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public ArrayList<GalleryImage> data = new ArrayList<>();
+        public ArrayList<GalleryImage> mData = new ArrayList<>();
 
         public SectionsPagerAdapter(FragmentManager fm, ArrayList<GalleryImage> data) {
             super(fm);
-            this.data = data;
+            this.mData = data;
         }
 
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position, data.get(position).getName(), data.get(position).getUrl());
+            return PlaceholderFragment.newInstance(position, mData.get(position).getName(), mData.get(position).getUrl());
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return data.size();
+            return mData.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return data.get(position).getName();
+            return mData.get(position).getName();
         }
     }
 
@@ -157,8 +158,8 @@ public class GalleryDetailsActivity extends AppCompatActivity {
          * fragment.
          */
 
-        String name, url;
-        int pos;
+        public String name, url;
+        public int pos;
         private static final String ARG_SECTION_NUMBER = "section_number";
         private static final String ARG_IMG_TITLE = "image_title";
         private static final String ARG_IMG_URL = "image_url";

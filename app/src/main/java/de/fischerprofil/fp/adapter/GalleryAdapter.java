@@ -105,7 +105,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
 //                v.getContext().startActivity(intent);
 
 //                Intent intent = new Intent(mContext, GalleryDetailsActivity.class);
-//                intent.putParcelableArrayListExtra("data", data);
+//                intent.putParcelableArrayListExtra("mData", mData);
 //                intent.putExtra("pos", position);
 //                mContext.startActivity(intent);
             }

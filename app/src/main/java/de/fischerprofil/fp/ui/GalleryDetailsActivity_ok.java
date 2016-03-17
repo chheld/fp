@@ -42,7 +42,7 @@ public class GalleryDetailsActivity_ok extends AppCompatActivity {
         mToolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(mToolbar);
 
-        mData = getIntent().getParcelableArrayListExtra("data");
+        mData = getIntent().getParcelableArrayListExtra("mData");
 
 /*
         GalleryImage galleryImage = new GalleryImage();

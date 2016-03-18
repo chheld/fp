@@ -1,5 +1,6 @@
 package de.fischerprofil.fp.adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -33,7 +34,7 @@ import de.fischerprofil.fp.rest.HttpsJsonTrustManager;
 import de.fischerprofil.fp.rest.RestUtils;
 import de.fischerprofil.fp.ui.UIUtils;
 
-public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
+public class ContactListAdapter_ok extends RecyclerView.Adapter<ContactListAdapter_ok.ViewHolder> {
 
     private Context mContext;
     public View mView;
@@ -46,7 +47,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     private ArrayList<Kontakt> mDataset;
 
-    public ContactListAdapter(Context c, ArrayList<Kontakt> d) {
+    public ContactListAdapter_ok(Context c, ArrayList<Kontakt> d) {
 
         mAppController = AppController.getInstance();
 
@@ -56,7 +57,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ContactListAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ContactListAdapter_ok.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
 //        Context mContext = parent.getContext();
         //mContext = parent.getContext();
@@ -67,7 +68,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
         // Return a new holder instance
         ViewHolder viewHolder = new ViewHolder(mView);
-
         return viewHolder;
     }
 
@@ -80,6 +80,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
         // Populate the mDataset into the template view using the mDataset object
         holder.position = position;
+        holder.isExpanded = false;
 
         holder.ivIcon.setImageResource(current.getIcon());
         holder.tvKonkaktname.setText((current.getVORNAME() + " " + current.getNAME()).trim());
@@ -201,7 +202,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         //static statt public wg speicher-probs
 
         public Integer position;
-        private Boolean isExpanded = false;
 
         public ImageView ivIcon;
         public TextView tvPersonnr;
@@ -221,6 +221,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
         private RelativeLayout layMehr;
         private ImageView ivMehr;
+        private Boolean isExpanded = false;
         private TextView tvTitel;
         int rotationAngle = 0;
 
@@ -276,23 +277,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
                 @Override
                 public void onClick(View v) {
 
-                    UIUtils.makeToast(v.getContext(), "Daten für " + position.toString() + " anzeigen ..."); //TEST
-
-/*
-                    if (isExpanded==true) {
-
-                        tvTitel.setText("Mehr anzeigen");
-
-                    } else {
-
-                        tvTitel.setText("Weniger anzeigen");
-
-                    }
-
-                    isExpanded =! isExpanded;
-*/
-
-/*
 
                     //v.setVisibility( v.isShown() ? View.GONE : View.VISIBLE );
 
@@ -330,7 +314,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
                         rotationAngle = rotationAngle%360;
                     }
                     isExpanded =! isExpanded;
-*/
 
                 }
 

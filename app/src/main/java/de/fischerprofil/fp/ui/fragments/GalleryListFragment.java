@@ -82,7 +82,7 @@ public class GalleryListFragment extends Fragment {
         Integer rows = getArguments().getInt("rows");
         mSearchString = getArguments().getString("search", null); // evtl. übergebene SUCH-Parameter ermitteln
 
-        if (rows==0) rows=4; // default für Anzeige setzen
+        if (rows==0) rows=3; // default Spalten für Anzeige setzen
         int numColumns = 3;
 
         //Setup layout manager

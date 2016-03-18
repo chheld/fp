@@ -67,7 +67,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
                         .placeholder(R.drawable.ic_hourglass_black)
                         .error(R.drawable.ic_default)
                         .centerCrop()
-                        .tag(holder)
+                        .tag(mContext)
                         .into(holder.mImg);
 
                 holder.mImg.setOnClickListener(new View.OnClickListener() {

@@ -204,6 +204,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         private Boolean isExpanded = false;
 
         public ImageView ivIcon;
+        public ImageButton ivMehrOben;
         public TextView tvPersonnr;
         public TextView tvKonkaktname;
         public TextView tvKdNr;
@@ -233,6 +234,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
             tvKdNr = (TextView) view.findViewById(R.id.tvKdNr);
             tvKTxt = (TextView) view.findViewById(R.id.tvKTxt);
             tvFunktion = (TextView) view.findViewById(R.id.tvFunktion);
+            ivMehrOben = (ImageButton) view.findViewById(R.id.ivMehrOben);
 
             tvTelefonnummer = (TextView) view.findViewById(R.id.tvTelefonnummer);
             tvMailadresse = (TextView) view.findViewById(R.id.tvMailadresse);
@@ -272,11 +274,24 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
                 });
             }
 
-            layMehr.setOnClickListener(new View.OnClickListener() {
+            //layMehr.setOnClickListener(new View.OnClickListener() {
+            ivMehrOben.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    UIUtils.makeToast(v.getContext(), "Daten für " + position.toString() + " anzeigen ..."); //TEST
+                    //UIUtils.makeToast(v.getContext(), "Daten für " + position.toString() + " anzeigen ..."); //TEST
+
+                    if (!tvTelefonnummer.getText().equals("<Telefonnummer>"))
+                        layTelefon.setVisibility(View.VISIBLE);
+
+                    if (!tvMailadresse.getText().equals("<Mailadresse>"))
+                        layMail.setVisibility(View.VISIBLE);
+
+                    layFunktion.setVisibility(View.VISIBLE);
+
+                    //ivMehrOben.setVisibility(View.INVISIBLE); //TODO: geht nicht - layoutfehler
+                    //layMehr.setVisibility(View.GONE); //TODO: geht nicht - layoutfehler
+
 
 /*
                     if (isExpanded==true) {

@@ -64,13 +64,14 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:id="@+id/ivMehrOben"
-                android:background="@android:color/transparent"
                 android:contentDescription="Mehr"
                 android:scaleType="fitCenter"
-                android:padding="8dp"
                 android:layout_alignParentEnd="true"
                 android:tint="#3B79D9"
-                android:tintMode="src_in" />
+                android:tintMode="src_in"
+                android:src="@drawable/ic_expand"
+                android:background="?android:selectableItemBackground"
+                android:clickable="true" />
 
         </RelativeLayout>
 
@@ -258,7 +259,8 @@
             android:clickable="true"
             android:layout_toRightOf="@+id/ivKontakt"
             android:padding="8dp"
-            android:gravity="center_vertical" >
+            android:gravity="center_vertical"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="48dp"

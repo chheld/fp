@@ -31,7 +31,7 @@ public  class AboutFragment extends Fragment {
             e.printStackTrace();
         }
         TextView txtName = (TextView) view.findViewById(R.id.txtLabel);
-        txtName.setText(txtName.getText() + "\n\n" + " Name:\n" + packageName + "\n\n" + " Version:\n" + versionName);
+        txtName.setText(txtName.getText() + "\n\n\n" + packageName + "\n\n" + versionName);
 
         return view;
     }

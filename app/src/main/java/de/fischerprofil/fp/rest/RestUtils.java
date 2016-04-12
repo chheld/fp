@@ -98,7 +98,6 @@ public class RestUtils {
 
         if (AppController.inEmulatorMode) {
             mRootURL = "https://222.222.222.60";        // internal URL
-            mRootURL = "https://fpvk.fischerprofil.de"; // external URL
             return mRootURL;
         }
 

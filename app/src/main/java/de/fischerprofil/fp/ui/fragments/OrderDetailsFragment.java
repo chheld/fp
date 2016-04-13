@@ -65,7 +65,7 @@ public  class OrderDetailsFragment extends Fragment {
 
         mANr = getArguments().getString("anr");
 
-        //mANr = "400006"; // TEST
+        mANr = "400006"; // TEST
 
         callAPIOrderByANR(URL + "/orders?qry=byANr&anr=" + mANr);
 

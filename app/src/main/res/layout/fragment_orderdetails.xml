@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView
+<android.support.v4.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,797 +12,789 @@
         android:layout_height="wrap_content"
         android:id="@+id/container_progressbar">
 
-
         <LinearLayout
-
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:id="@+id/container_liste">
-
-        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:id="@+id/container_auftrag"
-            android:layout_margin="5dp"
+            android:orientation="vertical"
+            android:id="@+id/container_liste">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:id="@+id/container_auftrag"
+                android:layout_margin="5dp"
+                    android:clickable="true"
+                    android:background="#ffffff"
+                    android:elevation="5dp">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarAuftrag"
+                        android:indeterminate="true"
+                        android:indeterminateTint="#3B7AD6"
+                        android:indeterminateTintMode="src_in"
+                        android:layout_centerInParent="true"
+                        style="?android:attr/progressBarStyleSmall" />
+
+                    <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivOrder"
+                    android:src="@drawable/ic_order"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="AB" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Auftrag"
+                    android:id="@+id/lblAuftrag"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivOrder"
+                    android:layout_toEndOf="@+id/ivOrder"
+                    android:textAppearance="@android:style/TextAppearance.Theme"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_alignBottom="@+id/ivOrder" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                    android:text="&lt;Nr>"
+                    android:id="@+id/tvANr"
+                    android:ellipsize="end"
+                        android:layout_alignBottom="@+id/lblAuftrag"
+                        android:layout_toRightOf="@+id/lblAuftrag"
+                        android:layout_toEndOf="@+id/lblAuftrag"
+                        android:textAppearance="@android:style/TextAppearance.Theme" />
+
+
+                    <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bemerkung"
+                    android:id="@+id/tvImageName"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblAuftrag"
+                        android:layout_alignStart="@+id/lblAuftrag"
+                    android:layout_alignParentEnd="true"
+                        android:layout_toRightOf="@+id/ivOrder" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JJJJ"
+                    android:id="@+id/tvKJ"
+                    android:ellipsize="end"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@+id/lblAuftrag" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="/"
+                    android:id="@+id/lblSep"
+                    android:ellipsize="end"
+                    android:layout_toLeftOf="@+id/tvKJ"
+                    android:layout_toStartOf="@+id/tvKJ"
+                    android:layout_marginRight="3dp"
+                    android:layout_alignBaseline="@+id/lblAuftrag" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Bestellnummer"
+                    android:id="@+id/tvBestellnummer"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/tvImageName"
+                    android:layout_alignLeft="@+id/tvImageName"
+                    android:layout_alignStart="@+id/tvImageName"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kommission"
+                    android:id="@+id/tvKommission"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/tvBestellnummer"
+                    android:layout_alignLeft="@+id/tvBestellnummer"
+                    android:layout_alignStart="@+id/tvBestellnummer"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KW"
+                    android:id="@+id/tvKW"
+                    android:ellipsize="end"
+                    android:layout_toLeftOf="@+id/lblSep"
+                    android:layout_toStartOf="@+id/lblSep"
+                    android:layout_marginRight="3dp"
+                    android:layout_alignBaseline="@+id/lblAuftrag" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="KW"
+                    android:id="@+id/lblKW"
+                    android:ellipsize="end"
+                    android:layout_toLeftOf="@+id/tvKW"
+                    android:layout_marginRight="3dp"
+                    android:layout_alignBaseline="@+id/lblAuftrag" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container_status"
+                android:layout_below="@+id/tvKommission"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="false"
+                android:padding="10dp"
+                android:background="#ffffff"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:elevation="5dp">
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivStatus"
+                    android:src="@drawable/ic_data_usage"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="Kreis" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Status"
+                    android:id="@+id/lblStatus"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivStatus"
+                    android:layout_toEndOf="@+id/ivStatus"
+                    android:layout_alignBottom="@+id/ivStatus"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Spezifizierung>"
+                    android:id="@+id/tvSpezifizierung"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/tvZDesc"
+                    android:layout_toRightOf="@+id/ivStatus"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Status2>"
+                    android:id="@+id/tvStatus2"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/tvSpezifizierung"
+                    android:layout_toRightOf="@+id/ivStatus"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Druckstatus>"
+                    android:id="@+id/tvZDesc"
+                    android:ellipsize="end"
+                    android:layout_centerVertical="true"
+                    android:layout_alignStart="@+id/lblStatus"
+                    android:layout_below="@+id/lblStatus"
+                    android:layout_toRightOf="@+id/ivStatus" />
+
+                <include
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    layout="@layout/status_orderdetails"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/lay_status_druck"
+                    android:layout_alignBottom="@+id/lblStatus" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/container_vertreter"
+                android:layout_below="@+id/container_status"
+                android:layout_alignStart="@+id/container_status"
+                android:layout_alignParentLeft="true"
+                android:padding="10dp"
+                android:layout_margin="5dp"
                 android:clickable="true"
                 android:background="#ffffff"
                 android:elevation="5dp">
 
                 <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/progressBarAuftrag"
+                    android:id="@+id/progressBarVertreter"
+                    android:layout_centerInParent="true"
                     android:indeterminate="true"
                     android:indeterminateTint="#3B7AD6"
                     android:indeterminateTintMode="src_in"
-                    android:layout_centerInParent="true"
-                    style="?android:attr/progressBarStyleSmall" />
+                    android:layout_gravity="center" />
 
                 <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivOrder"
-                android:src="@drawable/ic_order"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="AB" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Auftrag"
-                android:id="@+id/lblAuftrag"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivOrder"
-                android:layout_toEndOf="@+id/ivOrder"
-                android:textAppearance="@android:style/TextAppearance.Theme"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_alignBottom="@+id/ivOrder" />
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivKontakt"
+                    android:src="@drawable/ic_contact"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="Person" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                android:text="&lt;Nr>"
-                android:id="@+id/tvANr"
-                android:ellipsize="end"
-                    android:layout_alignBottom="@+id/lblAuftrag"
-                    android:layout_toRightOf="@+id/lblAuftrag"
-                    android:layout_toEndOf="@+id/lblAuftrag"
+                    android:text="&lt;Nr>"
+                    android:id="@+id/tvVertreter1"
+                    android:ellipsize="end"
+                    android:layout_alignBottom="@+id/lblKontakt"
+                    android:layout_toRightOf="@+id/lblKontakt"
                     android:textAppearance="@android:style/TextAppearance.Theme" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Vorname Nachname>"
+                    android:id="@+id/tvVertreterName"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblKontakt"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toRightOf="@+id/ivKontakt" />
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Verkäufer"
+                    android:id="@+id/lblKontakt"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivKontakt"
+                    android:layout_toEndOf="@+id/ivKontakt"
+                    android:layout_alignBottom="@+id/ivKontakt"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme"
+                    android:layout_marginRight="5dp" />
+
+
+
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bemerkung"
-                android:id="@+id/tvImageName"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblAuftrag"
-                    android:layout_alignStart="@+id/lblAuftrag"
-                android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@+id/ivOrder" />
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:background="#ffffff"
+                android:id="@+id/container_termine"
+                android:clickable="true"
+                android:elevation="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="JJJJ"
-                android:id="@+id/tvKJ"
-                android:ellipsize="end"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBaseline="@+id/lblAuftrag" />
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivCalendar"
+                    android:src="@drawable/ic_calendar"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="Termin" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="/"
-                android:id="@+id/lblSep"
-                android:ellipsize="end"
-                android:layout_toLeftOf="@+id/tvKJ"
-                android:layout_toStartOf="@+id/tvKJ"
-                android:layout_marginRight="3dp"
-                android:layout_alignBaseline="@+id/lblAuftrag" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Termine"
+                    android:id="@+id/lblTermine"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivCalendar"
+                    android:layout_alignBottom="@+id/ivCalendar"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
 
-            <TextView
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kundenwunsch"
+                    android:id="@+id/lblKdWunschTermin"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivCalendar"
+                    android:layout_alignTop="@+id/tvKdWunschTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvKdWunschTermin"
+                    android:text="&lt;Wunsch-Termin>"
+                    android:layout_toEndOf="@+id/lblProdDispTermin"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_below="@+id/lblTermine"
+                    android:layout_marginLeft="60dp"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Bestätigter Termin>"
+                    android:id="@+id/tvKdBestTermin"
+                    android:layout_below="@+id/tvKdWunschTermin"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_toEndOf="@+id/lblProdDispTermin"
+                    android:maxLines="1"
+                    android:layout_alignLeft="@+id/tvKdWunschTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Produktionstermin>"
+                    android:id="@+id/tvProdPlanTermin"
+                    android:layout_below="@+id/tvKdBestTermin"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_toEndOf="@+id/lblProdDispTermin"
+                    android:maxLines="1"
+                    android:layout_alignLeft="@+id/tvKdWunschTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Dispotermin>"
+                    android:id="@+id/tvProdDispTermin"
+                    android:layout_below="@+id/tvProdPlanTermin"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="right"
+                    android:layout_toEndOf="@+id/lblProdDispTermin"
+                    android:maxLines="1"
+                    android:layout_alignLeft="@+id/tvKdWunschTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bestätigt"
+                    android:id="@+id/lblKdBestTermin"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivCalendar"
+                    android:layout_alignTop="@+id/tvKdBestTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Produktion"
+                    android:id="@+id/lblProdPlanTermin"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivCalendar"
+                    android:layout_alignTop="@+id/tvProdPlanTermin" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disposition"
+                    android:id="@+id/lblProdDispTermin"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivCalendar"
+                    android:layout_alignTop="@+id/tvProdDispTermin" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Bestellnummer"
-                android:id="@+id/tvBestellnummer"
-                android:ellipsize="end"
-                android:layout_below="@+id/tvImageName"
-                android:layout_alignLeft="@+id/tvImageName"
-                android:layout_alignStart="@+id/tvImageName"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp" />
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:background="#ffffff"
+                android:id="@+id/container_kunde"
+                android:clickable="true"
+                android:elevation="5dp">
 
-            <TextView
+                <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBarKunde"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#3B7AD6"
+                    android:indeterminateTintMode="src_in"
+                    android:layout_gravity="center" />
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivFirma"
+                    android:src="@drawable/ic_organization"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="Haus" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kunde"
+                    android:id="@+id/lblKunde"
+                    android:ellipsize="end"
+                    android:layout_alignBottom="@+id/ivFirma"
+                    android:layout_toRightOf="@+id/ivFirma"
+                    android:layout_toEndOf="@+id/ivFirma"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme"
+                    android:layout_marginRight="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Nr>"
+                    android:id="@+id/tvKdNr"
+                    android:ellipsize="end"
+                    android:layout_alignBottom="@+id/lblKunde"
+                    android:layout_toRightOf="@+id/lblKunde"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Kundensuchbezeichnung>"
+                    android:id="@+id/tvKTxt"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblKunde"
+                    android:layout_alignParentEnd="true"
+                    android:layout_toRightOf="@+id/ivFirma" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Klasse>"
+                    android:id="@+id/tvKlassifizierung"
+                    android:ellipsize="end"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@+id/lblKunde" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kommission"
-                android:id="@+id/tvKommission"
-                android:ellipsize="end"
-                android:layout_below="@+id/tvBestellnummer"
-                android:layout_alignLeft="@+id/tvBestellnummer"
-                android:layout_alignStart="@+id/tvBestellnummer"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KW"
-                android:id="@+id/tvKW"
-                android:ellipsize="end"
-                android:layout_toLeftOf="@+id/lblSep"
-                android:layout_toStartOf="@+id/lblSep"
-                android:layout_marginRight="3dp"
-                android:layout_alignBaseline="@+id/lblAuftrag" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="KW"
-                android:id="@+id/lblKW"
-                android:ellipsize="end"
-                android:layout_toLeftOf="@+id/tvKW"
-                android:layout_marginRight="3dp"
-                android:layout_alignBaseline="@+id/lblAuftrag" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container_status"
-            android:layout_below="@+id/tvKommission"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false"
-            android:padding="10dp"
-            android:background="#ffffff"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivStatus"
-                android:src="@drawable/ic_data_usage"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
+                android:layout_height="match_parent"
+                android:id="@+id/container_lieferadresse"
+                android:layout_below="@+id/tvKTxt"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="Kreis" />
+                android:padding="10dp"
+                android:layout_margin="5dp"
+                android:background="#ffffff"
+                android:clickable="true"
+                android:elevation="5dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Status"
-                android:id="@+id/lblStatus"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivStatus"
-                android:layout_toEndOf="@+id/ivStatus"
-                android:layout_alignBottom="@+id/ivStatus"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
+                <ProgressBar
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBarLieferadresse"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="true"
+                    android:indeterminateTint="#3B7AD6"
+                    android:indeterminateTintMode="src_in"
+                    android:layout_gravity="center" />
 
-            <TextView
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivLKW"
+                    android:src="@drawable/ic_lorry"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="LKW" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lieferanschrift"
+                    android:id="@+id/lblLieferadresse"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivLKW"
+                    android:layout_alignBottom="@+id/ivLKW"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme"
+                    android:layout_marginRight="5dp" />
+
+                <ImageButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/btnMaps"
+                    android:layout_alignBottom="@+id/tvLieferAdresse"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/ic_location"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Maps"
+                    android:layout_marginLeft="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Nr>"
+                    android:id="@+id/tvAdresseNr"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/lblLieferadresse"
+                    android:layout_alignParentEnd="false"
+                    android:layout_alignBottom="@+id/lblLieferadresse"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
+                    android:maxLines="1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="&lt;Anschrift>"
+                    android:id="@+id/tvLieferAdresse"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblLieferadresse"
+                    android:layout_toRightOf="@+id/ivLKW"
+                    android:layout_toLeftOf="@+id/btnMaps" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="&lt;Spezifizierung>"
-                android:id="@+id/tvSpezifizierung"
-                android:ellipsize="end"
-                android:layout_below="@+id/tvZDesc"
-                android:layout_toRightOf="@+id/ivStatus"
-                android:layout_alignParentEnd="true" />
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:background="#ffffff"
+                android:id="@+id/container_auftragswerte"
+                android:clickable="true"
+                android:elevation="5dp">
 
-            <TextView
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ivSummen"
+                    android:src="@drawable/ic_banknotes"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp"
+                    android:contentDescription="Geld" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Auftragswerte"
+                    android:id="@+id/lblAuftragswerte"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_alignBottom="@+id/ivSummen"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="∑ Positionen"
+                    android:id="@+id/lblNetto0"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblAuftragswerte"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_toEndOf="@+id/ivSummen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNetto0"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@+id/lblNetto0" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Gesamtrabatt"
+                    android:id="@+id/lblGesamtrabatt"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblNetto0"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_toEndOf="@+id/ivSummen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="= Netto 1"
+                    android:id="@+id/lblNetto1"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblGesamtrabatt"
+                    android:layout_alignStart="@+id/lblGesamtrabatt"
+                    android:layout_toRightOf="@+id/ivSummen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Zusatzaufwand"
+                    android:id="@+id/lblZusatzaufwand"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblNetto1"
+                    android:layout_alignStart="@+id/lblNetto1"
+                    android:layout_toRightOf="@+id/ivSummen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="= Netto 2"
+                    android:id="@+id/lblNetto2"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblZusatzaufwand"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_toEndOf="@+id/ivSummen"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Umsatzsteuer"
+                    android:id="@+id/lblUmsatzsteuer"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblNetto2"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_toEndOf="@+id/ivSummen" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="= Brutto"
+                    android:id="@+id/lblBrutto"
+                    android:ellipsize="end"
+                    android:layout_below="@+id/lblUmsatzsteuer"
+                    android:layout_toRightOf="@+id/ivSummen"
+                    android:layout_toEndOf="@+id/ivSummen"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvGesamtrabatt"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignBaseline="@+id/lblGesamtrabatt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNetto1"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignEnd="@+id/tvGesamtrabatt"
+                    android:layout_alignBaseline="@+id/lblNetto1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvZusatzaufwand"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignEnd="@+id/tvNetto1"
+                    android:layout_alignBaseline="@+id/lblZusatzaufwand" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNetto2"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textStyle="bold"
+                    android:layout_alignBaseline="@+id/lblNetto2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvUmsatzsteuer"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignEnd="@+id/tvNetto2"
+                    android:layout_alignBaseline="@+id/lblUmsatzsteuer" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvBrutto"
+                    android:text="&lt;0> EUR"
+                    android:gravity="right"
+                    android:maxLines="1"
+                    android:layout_alignEnd="@+id/tvUmsatzsteuer"
+                    android:textStyle="bold"
+                    android:layout_alignBaseline="@+id/lblBrutto" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="&lt;Status2>"
-                android:id="@+id/tvStatus2"
-                android:ellipsize="end"
-                android:layout_below="@+id/tvSpezifizierung"
-                android:layout_toRightOf="@+id/ivStatus"
-                android:layout_alignParentEnd="true" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="&lt;Druckstatus>"
-                android:id="@+id/tvZDesc"
-                android:ellipsize="end"
-                android:layout_centerVertical="true"
-                android:layout_alignStart="@+id/lblStatus"
-                android:layout_below="@+id/lblStatus"
-                android:layout_toRightOf="@+id/ivStatus" />
-
-            <include
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                layout="@layout/status_orderdetails"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/lay_status_druck"
-                android:layout_alignBottom="@+id/lblStatus" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container_vertreter"
-            android:layout_below="@+id/container_status"
-            android:layout_alignStart="@+id/container_status"
-            android:layout_alignParentLeft="true"
-            android:padding="10dp"
-            android:layout_margin="5dp"
-            android:clickable="true"
-            android:background="#ffffff"
-            android:elevation="5dp">
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progressBarVertreter"
-                android:layout_centerInParent="true"
-                android:indeterminate="true"
-                android:indeterminateTint="#3B7AD6"
-                android:indeterminateTintMode="src_in"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivKontakt"
-                android:src="@drawable/ic_contact"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="Person" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Nr>"
-                android:id="@+id/tvVertreter1"
-                android:ellipsize="end"
-                android:layout_alignBottom="@+id/lblKontakt"
-                android:layout_toRightOf="@+id/lblKontakt"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="&lt;Vorname Nachname>"
-                android:id="@+id/tvVertreterName"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblKontakt"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/ivKontakt" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Verkäufer"
-                android:id="@+id/lblKontakt"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivKontakt"
-                android:layout_toEndOf="@+id/ivKontakt"
-                android:layout_alignBottom="@+id/ivKontakt"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme"
-                android:layout_marginRight="5dp" />
-
-
-
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="10dp"
-            android:background="#ffffff"
-            android:id="@+id/container_termine"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivCalendar"
-                android:src="@drawable/ic_calendar"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="Termin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Termine"
-                android:id="@+id/lblTermine"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivCalendar"
-                android:layout_alignBottom="@+id/ivCalendar"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kundenwunsch"
-                android:id="@+id/lblKdWunschTermin"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivCalendar"
-                android:layout_alignTop="@+id/tvKdWunschTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvKdWunschTermin"
-                android:text="&lt;Wunsch-Termin>"
-                android:layout_toEndOf="@+id/lblProdDispTermin"
-                android:layout_alignParentEnd="true"
-                android:gravity="right"
-                android:layout_below="@+id/lblTermine"
-                android:layout_marginLeft="60dp"
-                android:maxLines="1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Bestätigter Termin>"
-                android:id="@+id/tvKdBestTermin"
-                android:layout_below="@+id/tvKdWunschTermin"
-                android:layout_alignParentEnd="true"
-                android:gravity="right"
-                android:layout_toEndOf="@+id/lblProdDispTermin"
-                android:maxLines="1"
-                android:layout_alignLeft="@+id/tvKdWunschTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Produktionstermin>"
-                android:id="@+id/tvProdPlanTermin"
-                android:layout_below="@+id/tvKdBestTermin"
-                android:layout_alignParentEnd="true"
-                android:gravity="right"
-                android:layout_toEndOf="@+id/lblProdDispTermin"
-                android:maxLines="1"
-                android:layout_alignLeft="@+id/tvKdWunschTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Dispotermin>"
-                android:id="@+id/tvProdDispTermin"
-                android:layout_below="@+id/tvProdPlanTermin"
-                android:layout_alignParentEnd="true"
-                android:gravity="right"
-                android:layout_toEndOf="@+id/lblProdDispTermin"
-                android:maxLines="1"
-                android:layout_alignLeft="@+id/tvKdWunschTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bestätigt"
-                android:id="@+id/lblKdBestTermin"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivCalendar"
-                android:layout_alignTop="@+id/tvKdBestTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Produktion"
-                android:id="@+id/lblProdPlanTermin"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivCalendar"
-                android:layout_alignTop="@+id/tvProdPlanTermin" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Disposition"
-                android:id="@+id/lblProdDispTermin"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivCalendar"
-                android:layout_alignTop="@+id/tvProdDispTermin" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_margin="5dp"
-            android:background="#ffffff"
-            android:id="@+id/container_kunde"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progressBarKunde"
-                android:layout_centerInParent="true"
-                android:indeterminate="true"
-                android:indeterminateTint="#3B7AD6"
-                android:indeterminateTintMode="src_in"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivFirma"
-                android:src="@drawable/ic_organization"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="Haus" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Kunde"
-                android:id="@+id/lblKunde"
-                android:ellipsize="end"
-                android:layout_alignBottom="@+id/ivFirma"
-                android:layout_toRightOf="@+id/ivFirma"
-                android:layout_toEndOf="@+id/ivFirma"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme"
-                android:layout_marginRight="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Nr>"
-                android:id="@+id/tvKdNr"
-                android:ellipsize="end"
-                android:layout_alignBottom="@+id/lblKunde"
-                android:layout_toRightOf="@+id/lblKunde"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="&lt;Kundensuchbezeichnung>"
-                android:id="@+id/tvKTxt"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblKunde"
-                android:layout_alignParentEnd="true"
-                android:layout_toRightOf="@+id/ivFirma" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Klasse>"
-                android:id="@+id/tvKlassifizierung"
-                android:ellipsize="end"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBaseline="@+id/lblKunde" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/container_lieferadresse"
-            android:layout_below="@+id/tvKTxt"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:padding="10dp"
-            android:layout_margin="5dp"
-            android:background="#ffffff"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/progressBarLieferadresse"
-                android:layout_centerInParent="true"
-                android:indeterminate="true"
-                android:indeterminateTint="#3B7AD6"
-                android:indeterminateTintMode="src_in"
-                android:layout_gravity="center" />
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivLKW"
-                android:src="@drawable/ic_lorry"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="LKW" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lieferanschrift"
-                android:id="@+id/lblLieferadresse"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivLKW"
-                android:layout_alignBottom="@+id/ivLKW"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme"
-                android:layout_marginRight="5dp" />
-
-            <ImageButton
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/btnMaps"
-                android:layout_alignBottom="@+id/tvLieferAdresse"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_location"
-                android:background="@android:color/transparent"
-                android:contentDescription="Maps"
-                android:layout_marginLeft="15dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="&lt;Nr>"
-                android:id="@+id/tvAdresseNr"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/lblLieferadresse"
-                android:layout_alignParentEnd="false"
-                android:layout_alignBottom="@+id/lblLieferadresse"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-                android:maxLines="1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="&lt;Anschrift>"
-                android:id="@+id/tvLieferAdresse"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblLieferadresse"
-                android:layout_toRightOf="@+id/ivLKW"
-                android:layout_toLeftOf="@+id/btnMaps" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="10dp"
-            android:background="#ffffff"
-            android:id="@+id/container_auftragswerte"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/ivSummen"
-                android:src="@drawable/ic_banknotes"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp"
-                android:contentDescription="Geld" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Auftragswerte"
-                android:id="@+id/lblAuftragswerte"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_alignBottom="@+id/ivSummen"
-                android:layout_marginBottom="5dp"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="∑ Positionen"
-                android:id="@+id/lblNetto0"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblAuftragswerte"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_toEndOf="@+id/ivSummen" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNetto0"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBaseline="@+id/lblNetto0" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Gesamtrabatt"
-                android:id="@+id/lblGesamtrabatt"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblNetto0"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_toEndOf="@+id/ivSummen" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="= Netto 1"
-                android:id="@+id/lblNetto1"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblGesamtrabatt"
-                android:layout_alignStart="@+id/lblGesamtrabatt"
-                android:layout_toRightOf="@+id/ivSummen" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Zusatzaufwand"
-                android:id="@+id/lblZusatzaufwand"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblNetto1"
-                android:layout_alignStart="@+id/lblNetto1"
-                android:layout_toRightOf="@+id/ivSummen" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="= Netto 2"
-                android:id="@+id/lblNetto2"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblZusatzaufwand"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_toEndOf="@+id/ivSummen"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+ Umsatzsteuer"
-                android:id="@+id/lblUmsatzsteuer"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblNetto2"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_toEndOf="@+id/ivSummen" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="= Brutto"
-                android:id="@+id/lblBrutto"
-                android:ellipsize="end"
-                android:layout_below="@+id/lblUmsatzsteuer"
-                android:layout_toRightOf="@+id/ivSummen"
-                android:layout_toEndOf="@+id/ivSummen"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvGesamtrabatt"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignBaseline="@+id/lblGesamtrabatt" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNetto1"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignEnd="@+id/tvGesamtrabatt"
-                android:layout_alignBaseline="@+id/lblNetto1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvZusatzaufwand"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignEnd="@+id/tvNetto1"
-                android:layout_alignBaseline="@+id/lblZusatzaufwand" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvNetto2"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textStyle="bold"
-                android:layout_alignBaseline="@+id/lblNetto2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvUmsatzsteuer"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignEnd="@+id/tvNetto2"
-                android:layout_alignBaseline="@+id/lblUmsatzsteuer" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvBrutto"
-                android:text="&lt;0> EUR"
-                android:gravity="right"
-                android:maxLines="1"
-                android:layout_alignEnd="@+id/tvUmsatzsteuer"
-                android:textStyle="bold"
-                android:layout_alignBaseline="@+id/lblBrutto" />
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:padding="10dp"
-            android:background="#ffffff"
-            android:id="@+id/container_artikel"
-            android:clickable="true"
-            android:elevation="5dp">
-
-            <ImageView
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView4"
-                android:src="@drawable/ic_default"
-                android:layout_width="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="15dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="-"
-                android:id="@+id/lblArtikel"
-                android:ellipsize="end"
-                android:layout_toRightOf="@+id/imageView4"
-                android:layout_alignBottom="@+id/imageView4"
-                android:textAppearance="@android:style/TextAppearance.Theme" />
-        </RelativeLayout>
-
-
-        </LinearLayout>
-
-
-
+                android:layout_margin="5dp"
+                android:padding="10dp"
+                android:background="#ffffff"
+                android:id="@+id/container_artikel"
+                android:clickable="true"
+                android:elevation="5dp">
+
+                <ImageView
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView4"
+                    android:src="@drawable/ic_default"
+                    android:layout_width="25dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginRight="15dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-"
+                    android:id="@+id/lblArtikel"
+                    android:ellipsize="end"
+                    android:layout_toRightOf="@+id/imageView4"
+                    android:layout_alignBottom="@+id/imageView4"
+                    android:textAppearance="@android:style/TextAppearance.Theme" />
+            </RelativeLayout>
+
+            </LinearLayout>
 
     </RelativeLayout>
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

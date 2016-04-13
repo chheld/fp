@@ -145,6 +145,9 @@ public class GalleryListFragment extends Fragment {
 
             showProgressCircle(mSwipeRefreshLayout, true);
 
+            //alte Liste löschen
+            data.clear();
+
             callAPIImageListByDir(URL + "/pics"); // TODO Parameter übergeben
 //            callAPIImageListByDir(URL + "/pics"); // TODO Parameter übergeben
 //            callAPIImageListByDir(URL + "/pics?qry="+ picURL + "&mask=*__*&sub=true");

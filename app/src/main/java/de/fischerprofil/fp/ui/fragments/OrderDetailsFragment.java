@@ -64,8 +64,7 @@ public  class OrderDetailsFragment extends Fragment {
         progressBarAuftrag = (ProgressBar) mView.findViewById(R.id.progressBarAuftrag);
 
         mANr = getArguments().getString("anr");
-
-        mANr = "400006"; // TEST
+        //mANr = "400006"; // TEST
 
         callAPIOrderByANR(URL + "/orders?qry=byANr&anr=" + mANr);
 

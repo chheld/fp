@@ -110,6 +110,9 @@ public class ContactListFragment extends Fragment {
 
             showProgressCircle(mSwipeRefreshLayout, true);
 
+            //alte Liste löschen
+            mKontaktliste.Clear();
+
             // start http requests
             mSearchRequestCounter = 0;
             callAPIContactsByPersonNr(URL + "/contacts?relperson__personnr=" + RestUtils.cleanURL(search) + "%25"); // '%' = %25

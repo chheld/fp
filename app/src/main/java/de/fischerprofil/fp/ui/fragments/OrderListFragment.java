@@ -132,6 +132,10 @@ public class OrderListFragment extends Fragment {
                     startActivity(intent);
                 }
             });
+
+            //alte Liste löschen
+            mAuftragsliste.Clear();
+
             // start http requests
             mSearchRequestCounter = 0;
 

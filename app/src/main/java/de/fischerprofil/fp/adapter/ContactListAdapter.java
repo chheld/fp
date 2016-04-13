@@ -26,7 +26,6 @@ import java.util.ArrayList;
 
 import de.fischerprofil.fp.AppController;
 import de.fischerprofil.fp.R;
-import de.fischerprofil.fp.model.communication.Kommunikationsliste;
 import de.fischerprofil.fp.model.contact.Kontakt;
 import de.fischerprofil.fp.rest.HttpsJsonObjectRequest;
 import de.fischerprofil.fp.rest.HttpsJsonTrustManager;
@@ -41,15 +40,11 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
     private final String VOLLEY_TAG = "VOLLEY_TAG_rvContactListAdapter";
     public static String URL = RestUtils.getApiURL();
 
-    private Kommunikationsliste mKommunikationsliste = new Kommunikationsliste();
-    //private KommunikationslisteAdapter mAdapter;
-
     private ArrayList<Kontakt> mDataset;
 
     public ContactListAdapter(Context c, ArrayList<Kontakt> d) {
 
         mAppController = AppController.getInstance();
-
         mDataset = d;
         mContext = c;
     }

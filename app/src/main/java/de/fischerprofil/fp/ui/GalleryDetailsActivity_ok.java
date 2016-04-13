@@ -15,8 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 
 import de.fischerprofil.fp.R;
@@ -200,6 +198,7 @@ public class GalleryDetailsActivity_ok extends AppCompatActivity {
             final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);
 
             //Glide.with(getActivity()).load(url).thumbnail(0.1f).into(imageView);
+/*
             Picasso.with(this.getContext())
                     .load(url)
                     //.stableKey(mDataset.get(position).getUrl())
@@ -209,6 +208,7 @@ public class GalleryDetailsActivity_ok extends AppCompatActivity {
                     .centerCrop()
                     //.tag(holder)
                     .into(imageView);
+*/
 
             return rootView;
         }

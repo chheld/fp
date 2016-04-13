@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +31,6 @@ import de.fischerprofil.fp.model.contact.Kontaktliste;
 import de.fischerprofil.fp.model.reference.GalleryImage;
 import de.fischerprofil.fp.rest.HttpsJsonObjectRequest;
 import de.fischerprofil.fp.rest.HttpsJsonTrustManager;
-import de.fischerprofil.fp.rest.PreCachingGridLayoutManager;
 import de.fischerprofil.fp.rest.RestUtils;
 import de.fischerprofil.fp.ui.UIUtils;
 
@@ -87,10 +87,10 @@ public class GalleryListFragment extends Fragment {
 
         //Setup layout manager
         //v1
-        //GridLayoutManager layoutManager = new GridLayoutManager(mContext, rows);
+        GridLayoutManager layoutManager = new GridLayoutManager(mContext, rows);
         //v2
-        PreCachingGridLayoutManager layoutManager = new PreCachingGridLayoutManager(mContext, rows);
-        layoutManager.setExtraLayoutSpace(UIUtils.getScreenHeight(mContext)*2);
+//        PreCachingGridLayoutManager layoutManager = new PreCachingGridLayoutManager(mContext, rows);
+//        layoutManager.setExtraLayoutSpace(UIUtils.getScreenHeight(mContext)*2);
 
         //Setup Recyclerview
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
@@ -102,17 +102,14 @@ public class GalleryListFragment extends Fragment {
             public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
                 super.onScrollStateChanged(recyclerView, scrollState);
 
-                //final Picasso picasso = Picasso.with(mContext);
-
+                //Picasso picasso = Picasso.with(mContext);
                 if (scrollState == 1 || scrollState == 0) {
                     Picasso.with(mContext).resumeTag(mContext);
                 } else {
                     Picasso.with(mContext).pauseTag(mContext);
                 }
-
             }
         });
-
 
         //Setup Swipe Layput
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_conctactlist_container);
@@ -205,8 +202,7 @@ public class GalleryListFragment extends Fragment {
     }
 
     private void showProgressCircle(final SwipeRefreshLayout s, final Boolean v) {
-        s.setColorSchemeResources(
-                R.color.settings_color);
+        s.setColorSchemeResources(R.color.settings_color);
         s.post(new Runnable() {
             @Override public void run() {
                 s.setRefreshing(v);

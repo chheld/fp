@@ -61,7 +61,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
 
             if (holder.mImg.getDrawable() == null) {
 
-                mPicasso.load(mDataset.get(position).getUrl())
+                mPicasso.with(mContext)
+                        .load(mDataset.get(position).getUrl())
                         .stableKey(mDataset.get(position).getUrl())
                         .resize(200, 200)
                         .placeholder(R.drawable.ic_hourglass_black)

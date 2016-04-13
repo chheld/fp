@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import de.fischerprofil.fp.AppController;
 import de.fischerprofil.fp.R;
 import de.fischerprofil.fp.adapter.GalleryAdapter;
-import de.fischerprofil.fp.model.contact.Kontaktliste;
 import de.fischerprofil.fp.model.reference.GalleryImage;
 import de.fischerprofil.fp.rest.HttpsJsonObjectRequest;
 import de.fischerprofil.fp.rest.HttpsJsonTrustManager;
+import de.fischerprofil.fp.rest.PicassoUtils;
 import de.fischerprofil.fp.rest.RestUtils;
 import de.fischerprofil.fp.ui.UIUtils;
 
@@ -40,7 +40,6 @@ public class GalleryListFragment extends Fragment {
 
     private AppController mAppController;
     private Context mContext;
-    private Kontaktliste mKontaktliste = new Kontaktliste();
     private GalleryAdapter mAdapter;
     private int mSearchRequestCounter = 0;      // Zaehler fuer die http-Anfragen
     private String mSearchString;
@@ -48,6 +47,8 @@ public class GalleryListFragment extends Fragment {
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private final String VOLLEY_TAG = "VOLLEY_TAG_ReferenceListFragment";
     private final String URL = RestUtils.getApiURL();
+
+    private Picasso mPicasso;
 
     ArrayList<GalleryImage> data = new ArrayList<>();
 
@@ -77,6 +78,8 @@ public class GalleryListFragment extends Fragment {
         mContext = getActivity();
         mAppController = AppController.getInstance();
 
+        mPicasso = PicassoUtils.buildPicasso(mContext);
+
         View view = inflater.inflate(R.layout.fragment_recycleview_gallerylist, container, false);
 
         Integer rows = getArguments().getInt("rows");
@@ -102,11 +105,11 @@ public class GalleryListFragment extends Fragment {
             public void onScrollStateChanged(RecyclerView recyclerView, int scrollState) {
                 super.onScrollStateChanged(recyclerView, scrollState);
 
-                //Picasso picasso = Picasso.with(mContext);
+                //final Picasso picasso = PicassoUtils.buildPicasso(mContext);
                 if (scrollState == 1 || scrollState == 0) {
-                    Picasso.with(mContext).resumeTag(mContext);
+                    mPicasso.resumeTag(mContext);
                 } else {
-                    Picasso.with(mContext).pauseTag(mContext);
+                    mPicasso.pauseTag(mContext);
                 }
             }
         });
@@ -130,7 +133,8 @@ public class GalleryListFragment extends Fragment {
         super.onStop();
         // This will tell to Volley to cancel all the pending requests
         mAppController.cancelPendingRequests(VOLLEY_TAG);
-        Picasso.with(mContext).cancelTag(mContext);
+//        Picasso.with(mContext).cancelTag(mContext);
+        mPicasso.cancelTag(mContext);
     }
 
     private void doSearch(String search) {

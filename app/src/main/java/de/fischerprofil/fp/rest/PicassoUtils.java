@@ -5,7 +5,6 @@ import android.util.Base64;
 
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.OkHttpClient;
-import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttpDownloader;
 import com.squareup.picasso.Picasso;
 
@@ -39,13 +38,12 @@ public class PicassoUtils {
 
         Picasso picasso = new Picasso.Builder(context)
                 .downloader(new OkHttpDownloader(httpClient))
-                .memoryCache(new LruCache(context))
+                //.memoryCache(new LruCache(context))
                 //.memoryCache(new LruCache(24000))
                 .build();
         picasso.setIndicatorsEnabled(true);
-        picasso.setLoggingEnabled(true);
+        //picasso.setLoggingEnabled(true);
         //Picasso.setSingletonInstance(picasso);
-
         return picasso;
     }
 }

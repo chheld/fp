@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import de.fischerprofil.fp.AppController;
 import de.fischerprofil.fp.R;
 import de.fischerprofil.fp.adapter.GalleryAdapter;
+import de.fischerprofil.fp.listener.EndlessRecyclerViewScrollListener;
 import de.fischerprofil.fp.model.reference.GalleryImage;
 import de.fischerprofil.fp.rest.HttpsJsonObjectRequest;
 import de.fischerprofil.fp.rest.HttpsJsonTrustManager;
@@ -98,7 +99,7 @@ public class GalleryListFragment extends Fragment {
         //Setup Recyclerview
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(layoutManager);
-        mRecyclerView.getRecycledViewPool().setMaxRecycledViews(0, 2 * numColumns); //TODO: löschen ??
+        //mRecyclerView.getRecycledViewPool().setMaxRecycledViews(0, 2 * numColumns); //TODO: löschen ??
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -108,9 +109,19 @@ public class GalleryListFragment extends Fragment {
                 //final Picasso picasso = PicassoUtils.buildPicasso(mContext);
                 if (scrollState == 1 || scrollState == 0) {
                     mPicasso.resumeTag(mContext);
+
                 } else {
                     mPicasso.pauseTag(mContext);
                 }
+            }
+        });
+
+        mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(layoutManager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                customLoadMoreDataFromApi(page);
             }
         });
 
@@ -135,6 +146,23 @@ public class GalleryListFragment extends Fragment {
         mAppController.cancelPendingRequests(VOLLEY_TAG);
 //        Picasso.with(mContext).cancelTag(mContext);
         mPicasso.cancelTag(mContext);
+    }
+
+    // Append more data into the adapter
+    // This method probably sends out a network request and appends new data items to your adapter.
+    public void customLoadMoreDataFromApi(int offset) {
+        // TODO: loading per page
+        /// / Send an API request to retrieve appropriate data using the offset value as a parameter.
+        // Deserialize API response and then construct new objects to append to the adapter
+        // Add the new objects to the data source for the adapter
+        //items.addAll(moreItems);
+
+        // For efficiency purposes, notify the adapter of only the elements that got changed
+        // curSize will equal to the index of the first element inserted because the list is 0-indexed
+        //int curSize = adapter.getItemCount();
+        //adapter.notifyItemRangeInserted(curSize, items.size() - 1);
+        Toast.makeText(mContext, "TODO: Seite nachladen", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "Seite " + offset + " nachladen", Toast.LENGTH_SHORT).show();
     }
 
     private void doSearch(String search) {
@@ -167,11 +195,12 @@ public class GalleryListFragment extends Fragment {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Log.v("JSON","Elemente gefunden");
                     JSONArray images = response.getJSONArray("images");
+                    Log.v("JSON", images.length() + " Elemente gefunden");
 
                     // Daten in Array laden
-                    for (int i = 0; i < images.length(); i++) {
+                   for (int i = 0; i < images.length(); i++) {
+                    //for (int i = 0; i < images.length(); i++) {
                         GalleryImage image = new GalleryImage();
                         image.setName("Image_" + i);
                         image.setUrl(URL + "/" + images.get(i));
@@ -188,6 +217,7 @@ public class GalleryListFragment extends Fragment {
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
                     showProgressCircle(mSwipeRefreshLayout, false);
                 }
             }

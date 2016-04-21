@@ -7,6 +7,5 @@
     android:adjustViewBounds="true"
     android:scaleType="fitCenter"
     tools:context=".ui.GalleryDetailsActivity$PlaceholderFragment"
-    android:background="#f18c8c"
-    android:backgroundTint="#c9f2a5" />
+    android:background="#f18c8c" />
 

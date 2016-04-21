@@ -137,6 +137,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
             View rootView = inflater.inflate(R.layout.fragment_gallerydetails, container, false);
 
             final ImageView imageView = (ImageView) rootView.findViewById(R.id.detail_image);

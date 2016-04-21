@@ -84,12 +84,17 @@
         </activity>
 
         <activity android:name=".ui.GalleryDetailsActivity"
+            android:label="Referenz"
             android:launchMode="singleTop"
-            android:label="Gallery Details"
-            android:parentActivityName=".ui.GalleryListActivity" >
+            android:parentActivityName=".ui.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="de.fischerprofil.fp.ui.OrderListActivity" />
+                android:name="android.app.searchable"
+                android:value="de.fischerprofil.fp.MainActivity"
+                android:resource="@xml/searchable" />
         </activity>
 
         <provider

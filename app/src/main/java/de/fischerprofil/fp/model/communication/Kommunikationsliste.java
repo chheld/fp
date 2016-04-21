@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import de.fischerprofil.fp.listener.KommunikationslisteGeaendertListener;
+
 public class Kommunikationsliste {
 
     private ArrayList<Kommunikation> mDataset;

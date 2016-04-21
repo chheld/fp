@@ -1,6 +1,7 @@
 package de.fischerprofil.fp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,25 +12,25 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import de.fischerprofil.fp.AppController;
 import de.fischerprofil.fp.R;
 import de.fischerprofil.fp.model.reference.GalleryImage;
 import de.fischerprofil.fp.rest.PicassoUtils;
 import de.fischerprofil.fp.rest.RestUtils;
+import de.fischerprofil.fp.ui.GalleryDetailsActivity;
 import de.fischerprofil.fp.ui.UIUtils;
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryItemViewHolder> {
+public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.GalleryItemViewHolder> {
 
     private Context mContext;
-    private List<GalleryImage> mDataset = new ArrayList<>();
+    private ArrayList<GalleryImage> mDataset = new ArrayList<>();
     private Picasso mPicasso;
     private AppController mAppController;
     private final String VOLLEY_TAG = "VOLLEY_TAG_rvContactListAdapter";
     private static String URL = RestUtils.getApiURL();
 
-    public GalleryAdapter(Context context, List<GalleryImage> data) {
+    public GalleryListAdapter(Context context, ArrayList<GalleryImage> data) {
         mContext = context;
         mDataset = data;
         mPicasso = PicassoUtils.buildPicasso(mContext);
@@ -42,7 +43,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
             LayoutInflater inflater = LayoutInflater.from(mContext);
             View mView = inflater.inflate(R.layout.item_gallerylist, parent, false);
 
-            RecyclerView.ViewHolder viewHolder = new GalleryAdapter.GalleryItemViewHolder(mView);
+            RecyclerView.ViewHolder viewHolder = new GalleryListAdapter.GalleryItemViewHolder(mView);
 
         return (GalleryItemViewHolder) viewHolder;
     }
@@ -104,10 +105,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryI
 //                intent.putExtra("pos", position);
 //                v.getContext().startActivity(intent);
 
-//                Intent intent = new Intent(mContext, GalleryDetailsActivity.class);
-//                intent.putParcelableArrayListExtra("mData", mData);
-//                intent.putExtra("pos", position);
-//                mContext.startActivity(intent);
+                Intent intent = new Intent(mContext, GalleryDetailsActivity.class);
+                intent.putParcelableArrayListExtra("data", mDataset);
+                intent.putExtra("pos", position);
+                mContext.startActivity(intent);
             }
         }
         catch (Exception e) {

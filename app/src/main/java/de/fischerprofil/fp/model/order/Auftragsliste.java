@@ -8,6 +8,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import de.fischerprofil.fp.listener.AuftragslisteGeaendertListener;
+
 public class Auftragsliste {
 
     private ArrayList<Auftrag> mListe;

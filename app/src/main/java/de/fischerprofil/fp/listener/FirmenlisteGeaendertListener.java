@@ -1,4 +1,4 @@
-package de.fischerprofil.fp.model.company;
+package de.fischerprofil.fp.listener;
 
 import java.util.EventListener;
 

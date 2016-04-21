@@ -1,4 +1,4 @@
-package de.fischerprofil.fp.model.communication;
+package de.fischerprofil.fp.listener;
 
 import java.util.EventListener;
 

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 import de.fischerprofil.fp.AppController;
 import de.fischerprofil.fp.R;
-import de.fischerprofil.fp.adapter.GalleryAdapter;
+import de.fischerprofil.fp.adapter.GalleryListAdapter;
 import de.fischerprofil.fp.listener.EndlessRecyclerViewScrollListener;
 import de.fischerprofil.fp.model.reference.GalleryImage;
 import de.fischerprofil.fp.rest.HttpsJsonObjectRequest;
@@ -41,7 +41,7 @@ public class GalleryListFragment extends Fragment {
 
     private AppController mAppController;
     private Context mContext;
-    private GalleryAdapter mAdapter;
+    private GalleryListAdapter mAdapter;
     private int mSearchRequestCounter = 0;      // Zaehler fuer die http-Anfragen
     private String mSearchString;
     private RecyclerView mRecyclerView;
@@ -50,8 +50,7 @@ public class GalleryListFragment extends Fragment {
     private final String URL = RestUtils.getApiURL();
 
     private Picasso mPicasso;
-
-    ArrayList<GalleryImage> data = new ArrayList<>();
+    private ArrayList<GalleryImage> mDataset = new ArrayList<>();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -119,7 +118,7 @@ public class GalleryListFragment extends Fragment {
         mRecyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount) {
-                // Triggered only when new data needs to be appended to the list
+                // Triggered only when new mDataset needs to be appended to the list
                 // Add whatever code is needed to append new items to the bottom of the list
                 customLoadMoreDataFromApi(page);
             }
@@ -175,7 +174,7 @@ public class GalleryListFragment extends Fragment {
             showProgressCircle(mSwipeRefreshLayout, true);
 
             //alte Liste löschen
-            data.clear();
+            mDataset.clear();
 
             callAPIImageListByDir(URL + "/pics"); // TODO Parameter übergeben
 //            callAPIImageListByDir(URL + "/pics"); // TODO Parameter übergeben
@@ -200,14 +199,13 @@ public class GalleryListFragment extends Fragment {
 
                     // Daten in Array laden
                    for (int i = 0; i < images.length(); i++) {
-                    //for (int i = 0; i < images.length(); i++) {
                         GalleryImage image = new GalleryImage();
                         image.setName("Image_" + i);
                         image.setUrl(URL + "/" + images.get(i));
-                        data.add(image);
+                        mDataset.add(image);
                     }
                     //Adapter zuweisen
-                    mAdapter = new GalleryAdapter(mContext, data);
+                    mAdapter = new GalleryListAdapter(mContext, mDataset);
                     mRecyclerView.setAdapter(mAdapter);
 
                     mSearchRequestCounter--;

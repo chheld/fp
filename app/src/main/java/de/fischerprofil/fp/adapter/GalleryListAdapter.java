@@ -90,20 +90,10 @@ public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.
 
     private void showGalleryDialog(View v, String nr, Integer position, ArrayList<GalleryImage> data) {
 
-        UIUtils.makeToast(v.getContext(), nr); //TEST
+        //UIUtils.makeToast(v.getContext(), nr); //TEST
 
         try {
             if (nr != null && nr != "") {
-
-                //TODO neues fragment anzeigen
-//                Uri uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.buildUpon().appendPath(nr).build();
-//                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//                v.getContext().startActivity(intent);
-
-//                Intent intent = new Intent(mContext, ReferenceDetailActivity.class);
-//                intent.putParcelableArrayListExtra("mDataset", mDataset);
-//                intent.putExtra("pos", position);
-//                v.getContext().startActivity(intent);
 
                 Intent intent = new Intent(mContext, GalleryDetailsActivity.class);
                 intent.putParcelableArrayListExtra("data", mDataset);

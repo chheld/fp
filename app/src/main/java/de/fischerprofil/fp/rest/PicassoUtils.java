@@ -12,9 +12,6 @@ import java.io.IOException;
 
 import de.fischerprofil.fp.AppController;
 
-/**
- * Created by held on 26.01.2016.
- */
 public class PicassoUtils {
 
     public static Picasso buildPicasso(Context context){

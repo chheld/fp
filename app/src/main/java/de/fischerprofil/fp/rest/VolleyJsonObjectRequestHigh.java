@@ -14,9 +14,6 @@ import java.util.Map;
 
 import de.fischerprofil.fp.AppController;
 
-/**
- * Created by held on 29.09.2015.
- */
 public class VolleyJsonObjectRequestHigh extends JsonObjectRequest {
 
     Request.Priority mPriority;

@@ -8,14 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.fischerprofil.fp.model.order.Auftrag;
-
 import java.util.ArrayList;
 
-/**
- * Created by held on 13.01.2015.
- * https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
- */
+import de.fischerprofil.fp.model.order.Auftrag;
+
 public class OrderDetailsAdapter extends ArrayAdapter<Auftrag> {
 
     public OrderDetailsAdapter(Context c, ArrayList<Auftrag> o) {

@@ -43,7 +43,6 @@ public class HttpsJsonObjectRequest extends JsonObjectRequest {
         String username = AppController.preferences.getString( "username", "oh no" );
         String pw = AppController.preferences.getString("password", "oh no");
         return createBasicAuthHeader(username, pw);
-        // TEST: return createBasicAuthHeader("christoph.held@fischerprofil.de", "password");
     }
 
     Map<String, String> createBasicAuthHeader(String username, String password) {
@@ -53,7 +52,7 @@ public class HttpsJsonObjectRequest extends JsonObjectRequest {
         String credentials = username + ":" + password;
         String encodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
         headerMap.put("Authorization", "Basic " + encodedCredentials);
-        //TEST: headerMap.put("Authorization", "Basic Y2hyaXN0b3BoLmhlbGRAZmlzY2hlcnByb2ZpbC5kZTpkZXBwMTI=" ); // test für held
+        //headerMap.put("Authorization", "Basic Y2hyaXN0b3BoLmhlbGRAZmlzY2hlcnByb2ZpbC5kZTpkZXBwMTI=" ); // test user
         return headerMap;
     }
 }

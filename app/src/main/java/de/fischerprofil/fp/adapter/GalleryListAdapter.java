@@ -23,12 +23,12 @@ import de.fischerprofil.fp.ui.UIUtils;
 
 public class GalleryListAdapter extends RecyclerView.Adapter<GalleryListAdapter.GalleryItemViewHolder> {
 
-    private Context mContext;
-    private ArrayList<GalleryImage> mDataset = new ArrayList<>();
-    private Picasso mPicasso;
-    private AppController mAppController;
-    private final String VOLLEY_TAG = "VOLLEY_TAG_rvContactListAdapter";
-    private static String URL = RestUtils.getApiURL();
+    Context mContext;
+    ArrayList<GalleryImage> mDataset = new ArrayList<>();
+    Picasso mPicasso;
+    AppController mAppController;
+    final String VOLLEY_TAG = "VOLLEY_TAG_rvContactListAdapter";
+    static String URL = RestUtils.getApiURL();
 
     public GalleryListAdapter(Context context, ArrayList<GalleryImage> data) {
         mContext = context;

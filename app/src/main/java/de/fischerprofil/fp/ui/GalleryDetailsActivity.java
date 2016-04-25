@@ -25,10 +25,9 @@ import de.fischerprofil.fp.rest.PicassoUtils;
 
 public class GalleryDetailsActivity  extends AppCompatActivity {
 
-    private AppController mAppController;
-    private final String VOLLEY_TAG = "VOLLEY_TAG_GalleryDetailsActivity";
-    private Context mContext;
-
+    AppController mAppController;
+    final String VOLLEY_TAG = "VOLLEY_TAG_GalleryDetailsActivity";
+    Context mContext;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ArrayList<GalleryImage> data = new ArrayList<>();
@@ -50,10 +49,8 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         data = getIntent().getParcelableArrayListExtra("data");
         pos = getIntent().getIntExtra("pos", 0);
 
-        setTitle(data.get(pos).getName() + " " + pos.toString());
+        setTitle(data.get(pos).getName());
 
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), data);
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
@@ -62,12 +59,25 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setCurrentItem(pos);
 
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                //noinspection ConstantConditions
+                setTitle(data.get(position).getName());
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
     }
 
-    /**
-     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
-     */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public ArrayList<GalleryImage> data = new ArrayList<>();
@@ -81,7 +91,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            UIUtils.makeToast(mContext, String.valueOf(position)); //TEST
+            UIUtils.makeToast(mContext, data.get(position).getUrl()); //TEST
             return PlaceholderFragment.newInstance(position, data.get(position).getName(), data.get(position).getUrl());
         }
 
@@ -93,15 +103,12 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return data.get(position).getName();
+
+                        return data.get(position).getName();
         }
     }
 
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
 
         String name, url;
         int pos;
@@ -117,17 +124,15 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
             this.url = args.getString(ARG_IMG_URL);
         }
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber, String name, String url) {
+
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             args.putString(ARG_IMG_TITLE, name);
             args.putString(ARG_IMG_URL, url);
             fragment.setArguments(args);
+
             return fragment;
         }
 
@@ -152,6 +157,5 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
 
             return rootView;
         }
-
     }
 }

@@ -42,7 +42,7 @@ public class GalleryListFragment extends Fragment {
     private AppController mAppController;
     private Context mContext;
     private GalleryListAdapter mAdapter;
-    private int mSearchRequestCounter = 0;      // Zaehler fuer die http-Anfragen
+    private int mSearchRequestCounter = 0;      // Zähler fuer die http-Anfragen
     private String mSearchString;
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;

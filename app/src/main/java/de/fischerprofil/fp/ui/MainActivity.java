@@ -148,8 +148,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.nav_home: // TODO: Zuletzt verwendete Vorgänge
                 break;
 
-            case R.id.nav_www:
+            case R.id.nav_www: // TODO: Aufruf der WWW fischerprofil.de
                 fragment = new WWWFragment();
+                // in default Browser
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("www.fischerprofil.de"));
+//                startActivity(browserIntent);
                 break;
 
             case R.id.nav_about:

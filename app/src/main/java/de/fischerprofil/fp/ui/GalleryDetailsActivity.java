@@ -1,5 +1,6 @@
 package de.fischerprofil.fp.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -26,11 +27,12 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
 
     private AppController mAppController;
     private final String VOLLEY_TAG = "VOLLEY_TAG_GalleryDetailsActivity";
+    private Context mContext;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ArrayList<GalleryImage> data = new ArrayList<>();
-    private int pos;
+    private Integer pos;
 
     private ViewPager mViewPager;
 
@@ -39,7 +41,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallerydetails);
-
+        mContext=this;
         mAppController = AppController.getInstance();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
@@ -48,7 +50,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         data = getIntent().getParcelableArrayListExtra("data");
         pos = getIntent().getIntExtra("pos", 0);
 
-        setTitle(data.get(pos).getName());
+        setTitle(data.get(pos).getName() + " " + pos.toString());
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -67,6 +69,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
         public ArrayList<GalleryImage> data = new ArrayList<>();
 
         public SectionsPagerAdapter(FragmentManager fm, ArrayList<GalleryImage> data) {
@@ -78,6 +81,7 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
+            UIUtils.makeToast(mContext, String.valueOf(position)); //TEST
             return PlaceholderFragment.newInstance(position, data.get(position).getName(), data.get(position).getUrl());
         }
 
@@ -150,6 +154,4 @@ public class GalleryDetailsActivity  extends AppCompatActivity {
         }
 
     }
-
-
 }

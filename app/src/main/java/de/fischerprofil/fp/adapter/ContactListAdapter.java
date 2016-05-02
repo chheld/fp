@@ -269,83 +269,18 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
                 });
             }
 
-            //layMehr.setOnClickListener(new View.OnClickListener() {
-            ivMehrOben.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    //UIUtils.makeToast(v.getContext(), "Daten für " + position.toString() + " anzeigen ..."); //TEST
-
-                    if (!tvTelefonnummer.getText().equals("<Telefonnummer>"))
-                        layTelefon.setVisibility(View.VISIBLE);
-
-                    if (!tvMailadresse.getText().equals("<Mailadresse>"))
-                        layMail.setVisibility(View.VISIBLE);
-
-                    layFunktion.setVisibility(View.VISIBLE);
-
-                    //ivMehrOben.setVisibility(View.INVISIBLE); //TODO: geht nicht - layoutfehler
-                    //layMehr.setVisibility(View.GONE); //TODO: geht nicht - layoutfehler
-
-
-/*
-                    if (isExpanded==true) {
-
-                        tvTitel.setText("Mehr anzeigen");
-
-                    } else {
-
-                        tvTitel.setText("Weniger anzeigen");
-
-                    }
-
-                    isExpanded =! isExpanded;
-*/
-
-/*
-
-                    //v.setVisibility( v.isShown() ? View.GONE : View.VISIBLE );
-
-
-                    if (isExpanded==true) {
-//                    if (tvTitel.getText().equals("Weniger anzeigen")) {
-                        layTelefon.setVisibility(View.GONE);
-                        layMail.setVisibility(View.GONE);
-                        layFunktion.setVisibility(View.GONE);
-                        tvTitel.setText("Mehr anzeigen");
-
-                        ObjectAnimator anim = ObjectAnimator.ofFloat(ivMehr, "rotation", rotationAngle, rotationAngle + 180);
-                        anim.setDuration(500);
-                        anim.start();
-                        rotationAngle += 180;
-                        rotationAngle = rotationAngle%360;
-
-                    } else {
-
-                        // TODO: erst laden wenn anzeige gewünscht
-                        UIUtils.makeToast(v.getContext(), "Daten für " + tvPersonnr.getText() + " nachladen ..."); //TEST
-
-//                        callAPILookupFirmaFGKNZ2(URL + "/lookup?qry=RELZTNUM&tabname=PERSV1&result=ktxt&Sprache=de&ztkey=" + this.getVERWENDUNG1(), v, position);
-//                        callAPIKommunikationByPersonNr(URL + "/com?relperson__personnr=" + v.tvPersonnr.getText(),v,position);
-
-                        layTelefon.setVisibility(View.VISIBLE);
-                        layMail.setVisibility(View.VISIBLE);
-                        layFunktion.setVisibility(View.VISIBLE);
-                        tvTitel.setText("Weniger anzeigen");
-
-                        ObjectAnimator anim = ObjectAnimator.ofFloat(ivMehr, "rotation", rotationAngle, rotationAngle + 180);
-                        anim.setDuration(500);
-                        anim.start();
-                        rotationAngle += 180;
-                        rotationAngle = rotationAngle%360;
-                    }
-                    isExpanded =! isExpanded;
-*/
-
-                }
-
-            });
-
+//            ivMehrOben.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//
+//                    //UIUtils.makeToast(v.getContext(), "Daten für " + position.toString() + " anzeigen ..."); //TEST
+//                    if (!tvTelefonnummer.getText().equals("<Telefonnummer>"))
+//                        layTelefon.setVisibility(View.VISIBLE);
+//                    if (!tvMailadresse.getText().equals("<Mailadresse>"))
+//                        layMail.setVisibility(View.VISIBLE);
+//                    layFunktion.setVisibility(View.VISIBLE);
+//                }
+//            });
         }
 
         private void showCallDialog(View v, String nr) {

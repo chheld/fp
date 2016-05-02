@@ -71,7 +71,7 @@
                 android:tintMode="src_in"
                 android:src="@drawable/ic_expand"
                 android:background="?android:selectableItemBackground"
-                android:clickable="true" />
+                android:clickable="false" />
 
         </RelativeLayout>
 

@@ -6,6 +6,7 @@ import android.graphics.drawable.ClipDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,7 @@ public  class OrderDetailsFragment extends Fragment {
     private ProgressBar pbarKunde;
     private final String VOLLEY_TAG = "VOLLEY_TAG_OrderDetailsFragment";
     private final String URL = RestUtils.getApiURL();
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,6 +67,14 @@ public  class OrderDetailsFragment extends Fragment {
 
         mANr = getArguments().getString("anr");
         //mANr = "400006"; // TEST
+
+        mSwipeRefreshLayout = (SwipeRefreshLayout) mView.findViewById(R.id.swipe_orderdetails_container);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                callAPIOrderByANR(URL + "/orders?qry=byANr&anr=" + mANr);
+            }
+        });
 
         callAPIOrderByANR(URL + "/orders?qry=byANr&anr=" + mANr);
 
@@ -259,7 +269,7 @@ public  class OrderDetailsFragment extends Fragment {
             }
         });
 
-        progressBarAuftrag.setVisibility(View.VISIBLE);
+        //progressBarAuftrag.setVisibility(View.VISIBLE);
 
         HttpsJsonTrustManager.allowAllSSL();  // SSL-Fehlermeldungen ignorieren
 
@@ -274,11 +284,13 @@ public  class OrderDetailsFragment extends Fragment {
                     mAuftrag = gson.fromJson(orders.getJSONObject(0).toString(), Auftrag.class);
                     setupLayout(mView);
                     progressBarAuftrag.setVisibility(View.GONE);  // Fortschritt ausblenden
-                }
+                    showProgressCircle(mSwipeRefreshLayout, false);
+            }
                 catch (JSONException e) {
                     Log.e("Volley Error: ", e.toString());
                     Toast.makeText(mContext, e.toString(), Toast.LENGTH_SHORT).show();
                     progressBarAuftrag.setVisibility(View.GONE);  // Fortschritt ausblenden
+                    showProgressCircle(mSwipeRefreshLayout, false);
                 }
             }
         }, new Response.ErrorListener() {
@@ -288,6 +300,7 @@ public  class OrderDetailsFragment extends Fragment {
                 Log.e("Volley Error: ", error.toString());
                 Toast.makeText(mContext, error.toString(), Toast.LENGTH_SHORT).show();
                 progressBarAuftrag.setVisibility(View.GONE);  // Fortschritt ausblenden
+                showProgressCircle(mSwipeRefreshLayout, false);
             }
         }) ;
         req.setRetryPolicy(new DefaultRetryPolicy(3000, 3, 2));
@@ -507,7 +520,7 @@ public  class OrderDetailsFragment extends Fragment {
 
     private void showMaps() {
 
-        UIUtils.makeToast(mContext, "Starte Navi-App ...");
+        UIUtils.makeToast(mContext, "Suche Adresse \n" + mMapsAddress);
 
         try {
             String address = mMapsAddress; //"Kiefernweg 15, 57250 Netphen"; // TEST
@@ -517,5 +530,16 @@ public  class OrderDetailsFragment extends Fragment {
         catch (Exception e) {
             UIUtils.makeToast(mContext, "Keine Navi-App installiert");
         }
+    }
+
+    private void showProgressCircle(final SwipeRefreshLayout s, final Boolean v) {
+        s.setColorSchemeResources(
+                R.color.settings_color);
+        s.post(new Runnable() {
+            @Override
+            public void run() {
+                s.setRefreshing(v);
+            }
+        });
     }
 }
